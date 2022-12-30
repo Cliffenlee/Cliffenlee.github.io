@@ -1,0 +1,25 @@
+.menuItem {
+  font-family: Gotham;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.initial {
+  height: 100vh;
+  width: 100vw;
+  font-size: large;
+}
+
+.shrink {
+  transition-duration: 500ms;
+  height: 10vh;
+  width: 512px;
+  font-size: x-small;
+}
