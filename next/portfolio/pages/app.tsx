@@ -1,24 +1,21 @@
-import Menu from "./components/menu/menu";
-import styles from "./app.module.css";
-import Content from "./components/content/content";
 import { useEffect, useState } from "react";
+import styles from "./app.module.css";
+import Main from "./components/main/main";
+import Cover from "./components/cover/cover";
 
 export default function App(): JSX.Element {
-  const [mounted, setMounted] = useState(false);
+  const [coverScrolled, setCoverScrolled] = useState(false);
+  const scrolledProps = {
+    coverScrolled,
+    setCoverScrolled,
+  };
   useEffect(() => {
-    setTimeout(() => {
-      console.log("shrinking");
-      setMounted(true);
-    }, 3000);
-  }, []);
+    console.log(coverScrolled);
+  }, [coverScrolled]);
   return (
     <div className={styles.root}>
-      <div className={styles.menu}>
-        <Menu mounted={mounted} />
-      </div>
-      <div className={styles.content}>
-        <Content mounted={mounted} />
-      </div>
+      <Cover {...scrolledProps} />
+      <Main coverScrolled={coverScrolled} />
     </div>
   );
 }

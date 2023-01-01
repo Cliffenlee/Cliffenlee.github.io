@@ -3,6 +3,31 @@
   margin: 0;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
+} */
+
+@font-face {
+  font-family: "Searchlight";
+  src: url("../assets/fonts/Searchlight-Serif_PersonalUse.otf");
+}
+
+@font-face {
+  font-family: "GTAmerica";
+  src: url("../assets/fonts/GT-America-Compressed-Thin-Trial.otf");
+}
+
+@font-face {
+  font-family: "SFUIDisplay";
+  src: url("../assets/fonts/sf-ui-display-ultralight-58646b19bf205.otf");
+}
+
+@font-face {
+  font-family: "SFUIDisplayMedium";
+  src: url("../assets/fonts/sf-ui-display-thin-58646e9b26e8b.otf");
+}
+
+@font-face {
+  font-family: "Chaviera";
+  src: url("../assets/fonts/chavieraregular-d9pwz.otf");
 }

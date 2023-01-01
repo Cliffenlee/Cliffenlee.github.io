@@ -1,0 +1,19 @@
+.flexCenter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.hidden {
+  opacity: 0;
+  top: 100vh;
+}
+
+.root {
+  top: 0;
+  opacity: 100;
+  transition-duration: 300ms;
+}

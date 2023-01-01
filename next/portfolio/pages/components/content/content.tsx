@@ -1,17 +1,9 @@
-import styles from "./content.module.css";
+import Intro from "../Intro/intro";
 
-export default function Content({
-  mounted,
-}: {
-  mounted: boolean;
-}): JSX.Element {
+export default function Content({}: {}): JSX.Element {
   return (
-    <h1
-      className={`${styles.flexCenter} ${
-        mounted ? styles.expand : styles.initial
-      }`}
-    >
-      This is content
-    </h1>
+    <div>
+      <Intro />
+    </div>
   );
 }

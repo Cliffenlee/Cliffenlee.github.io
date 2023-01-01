@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  height: 150px;
+  width: 100vw;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0px;
+}
+
+.menuItem {
+  font-family: SFUIDisplay;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.logo {
+  font-family: Searchlight;
+  font-size: 100px;
+  background: -moz-linear-gradient(top, #222222, rgb(34, 34, 34, 0.38));
+  background: -webkit-linear-gradient(top, #222222, rgb(34, 34, 34, 0.38));
+  background: -o-linear-gradient(top, #222222, rgb(34, 34, 34, 0.38));
+  background: -ms-linear-gradient(top, #222222, rgb(34, 34, 34, 0.38));
+  background: linear-gradient(to bottom, #222222, rgb(34, 34, 34, 0.38));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
