@@ -17,7 +17,7 @@ export default function Main({
         coverScrolled ? styles.root : styles.hidden
       }`}
     >
-      <Nav />
+      {/* <Nav /> */}
       <Content />
     </div>
   );

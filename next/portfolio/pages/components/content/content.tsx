@@ -1,9 +1,5 @@
 import Intro from "../Intro/intro";
 
 export default function Content({}: {}): JSX.Element {
-  return (
-    <div>
-      <Intro />
-    </div>
-  );
+  return <Intro />;
 }
