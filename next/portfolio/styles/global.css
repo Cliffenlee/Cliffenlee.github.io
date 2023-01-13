@@ -31,3 +31,12 @@
   font-family: "Chaviera";
   src: url("../assets/fonts/chavieraregular-d9pwz.otf");
 }
+
+@font-face {
+  font-family: "Grotesque";
+  src: url("../assets/fonts/BasisGrotesquePro-Bold.ttf");
+}
+@font-face {
+  font-family: "Grotesque Black";
+  src: url("../assets/fonts/BasisGrotesquePro-Black.ttf");
+}
