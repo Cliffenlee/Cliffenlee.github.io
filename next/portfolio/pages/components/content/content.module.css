@@ -6,6 +6,10 @@
   overflow-x: hidden;
 }
 
+.loading {
+  overflow-y: hidden;
+}
+
 .snap {
   position: relative;
   height: 100vh;
