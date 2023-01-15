@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 74px;
+}
+
+.bigFont {
+  font-family: Grotesque;
+  font-size: 160px;
+  letter-spacing: 0px;
+  line-height: 0.71em;
+}
+.hollowFont {
+  font-family: Grotesque;
+  font-size: 160px;
+  letter-spacing: -2px;
+  line-height: 0.71em;
+  -webkit-text-stroke: 3px black;
+  -webkit-text-fill-color: transparent;
+}
+
+.middle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.smallFont {
+  font-family: "Grotesque Black";
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.caption {
+  margin-top: 58px;
+}

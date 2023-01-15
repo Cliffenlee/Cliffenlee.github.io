@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16.03">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g>
+    <circle class="cls-1" cx="8" cy="8.03" r="7.5"/>
+    <path d="M8,1.03c3.86,0,7,3.14,7,7s-3.14,7-7,7S1,11.89,1,8.03,4.14,1.03,8,1.03M8,.03C3.58,.03,0,3.61,0,8.03s3.58,8,8,8,8-3.58,8-8S12.42,.03,8,.03h0Z"/>
+  </g>
+  <line class="cls-2" x1="8" y1="2.03" x2="8" y2="11.53"/>
+  <polygon class="cls-2" points="8 1.03 2.15 11.53 13.85 11.53 8 1.03"/>
+</svg>

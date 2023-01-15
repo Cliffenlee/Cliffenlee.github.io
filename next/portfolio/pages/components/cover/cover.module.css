@@ -13,6 +13,10 @@
 }
 
 .title {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   font-family: Searchlight;
   font-size: 300px;
   background: -moz-linear-gradient(top, #f7f7f7, #b1b1b1);
@@ -29,6 +33,8 @@
   font-family: GTAmerica;
   font-size: 30px;
   letter-spacing: 7px;
+  text-align: center;
+  transform: translateY(150px);
 }
 
 .name {
@@ -43,5 +49,19 @@
 .fadeUp {
   opacity: 0;
   transform: translateY(-300px);
+  transition-duration: 500ms;
+}
+
+.colorChange {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  background: none;
+  transform: translate(50%, -50%);
+  font-family: Searchlight;
+  font-size: 300px;
+  color: #000000;
+  opacity: 0;
+  transition-delay: 1000ms;
   transition-duration: 500ms;
 }

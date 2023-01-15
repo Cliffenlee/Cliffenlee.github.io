@@ -12,7 +12,7 @@ export default function Home() {
         <title>Jeff Lee</title>
         <meta name="description" content="Jeff's portfolio website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/ICON1.png" />
+        <link rel="icon" href="/ICON.png" />
       </Head>
       <App />
     </>

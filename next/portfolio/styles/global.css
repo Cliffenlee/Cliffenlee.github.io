@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: "SFUIDisplayMedium";
+  font-familsy: "SFUIDisplayMedium";
   src: url("../assets/fonts/sf-ui-display-thin-58646e9b26e8b.otf");
 }
 
@@ -39,4 +39,8 @@
 @font-face {
   font-family: "Grotesque Black";
   src: url("../assets/fonts/BasisGrotesquePro-Black.ttf");
+}
+@font-face {
+  font-family: "Grotesque Regular";
+  src: url("../assets/fonts/BasisGrotesquePro-Regular.ttf");
 }

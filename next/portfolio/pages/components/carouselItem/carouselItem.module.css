@@ -1,0 +1,21 @@
+.carouselItem {
+  width: 473px;
+  height: 729px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.projectNumber {
+  margin-top: 73px;
+  font-family: "Grotesque Black";
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.projectName {
+  font-family: "Grotesque";
+  font-size: 12px;
+}

@@ -13,16 +13,19 @@ export default function Cover({
   };
 
   return (
-    <div
-      className={`${styles.root} ${coverScrolled && styles.fadeUp}`}
-      onWheel={handleWheel}
-    >
-      <div className={styles.title}>JL</div>
-      <div className={`${styles.subtitle} ${styles.name}`}>
-        JEFF LEE JUN YAN
+    <div onWheel={handleWheel}>
+      <div
+        className={`${!coverScrolled && styles.title} ${
+          coverScrolled && styles.colorChange
+        }`}
+      >
+        JL
       </div>
-      <div className={`${styles.subtitle} ${styles.caption}`}>
-        DESIGN PORTFOLIO
+      <div className={`${styles.root} ${coverScrolled && styles.fadeUp}`}>
+        <div className={styles.subtitle}>
+          <div className={styles.name}>JEFF LEE JUN YAN</div>
+          <div className={styles.caption}>DESIGN PORTFOLIO</div>
+        </div>
       </div>
     </div>
   );

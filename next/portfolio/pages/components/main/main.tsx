@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect } from "react";
 import Content from "../content/content";
 import Nav from "../nav/nav";
@@ -17,8 +18,7 @@ export default function Main({
         coverScrolled ? styles.root : styles.hidden
       }`}
     >
-      {/* <Nav /> */}
-      <Content />
+      <Content coverScrolled={coverScrolled} />
     </div>
   );
 }
