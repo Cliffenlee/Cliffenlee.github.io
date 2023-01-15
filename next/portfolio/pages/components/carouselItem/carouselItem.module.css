@@ -1,11 +1,14 @@
 .carouselItem {
-  width: 473px;
-  height: 729px;
+  width: 10%;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  margin-left: 250px;
+  margin-right: 250px;
+  padding-bottom: 16px;
 }
 
 .projectNumber {

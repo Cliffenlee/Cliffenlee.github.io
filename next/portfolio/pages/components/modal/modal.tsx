@@ -1,11 +1,4 @@
-import { useEffect } from "react";
 import styles from "./modal.module.css";
-
-const projects = [
-  {
-    imageURI: "/images/1.png",
-  },
-];
 
 export default function Modal({
   shown,
@@ -16,9 +9,6 @@ export default function Modal({
   title: string;
   setShown: (a: boolean) => void;
 }): JSX.Element {
-  useEffect(() => {
-    console.log(shown);
-  }, [shown]);
   return (
     <div
       className={`${styles.root} ${!shown && styles.hide}`}
