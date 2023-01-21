@@ -52,6 +52,16 @@ const projects: ReadonlyArray<Project> = [
     name: "PEOPLE’S PARK COMPLEX",
     imageURI: "/images/3.png",
   },
+  {
+    id: 4,
+    name: "PEOPLE’S PARK COMPLEX",
+    imageURI: "/images/3.png",
+  },
+  {
+    id: 5,
+    name: "PEOPLE’S PARK COMPLEX",
+    imageURI: "/images/3.png",
+  },
 ];
 
 export default function Carousel({}: {}): JSX.Element {
@@ -76,7 +86,6 @@ export default function Carousel({}: {}): JSX.Element {
       <span className={styles.bigFont}>PROJECTS</span>
       <div
         className={styles.carousel}
-        style={{ transform: `translateX(${offsetX * 1.5}px)` }}
         onClick={(e) => {
           e.preventDefault();
         }}
@@ -107,8 +116,10 @@ export default function Carousel({}: {}): JSX.Element {
         {projects.map((project) => {
           return (
             <CarouselItem
+              offsetX={offsetX}
               centerPoint={centerPoint}
               clickable={clickable}
+              setOldOffsetX={setOldOffsetX}
               setClickable={setClickable}
               setSelectedProject={setSelectedProject}
               setShown={setShown}
