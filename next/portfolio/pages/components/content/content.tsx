@@ -27,7 +27,7 @@ export default function Content({
   }, [coverScrolled]);
 
   const handleScroll = () => {
-    console.log(scrollRef.current?.getBoundingClientRect().top);
+    // console.log(scrollRef.current?.getBoundingClientRect().top);
     !stickScroll &&
       scrollRef.current?.getBoundingClientRect().top <= 0 &&
       setStickScroll(true);
