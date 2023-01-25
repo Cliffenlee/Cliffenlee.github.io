@@ -1,32 +1,8 @@
-.root {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-}
-
-.timeline {
-  height: 200vh;
-  background-color: #000000;
-}
-
-/* .image {
-  object-fit: contain;
-  height: 100vh;
-  width: 100%;
-  position: sticky;
-  top: 0;
-} */
-
-.image {
+.images {
   visibility: hidden;
 }
 
-.stick {
-  position: fixed;
-  top: 0;
-}
-
-.canvas {
+.pinRef {
+  width: 100vw;
   height: 100vh;
-  width: 100%;
 }

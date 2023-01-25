@@ -1,142 +1,89 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Ref, useEffect, useRef, useState } from "react";
-import { render } from "react-dom";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
 import styles from "./scroll.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Scroll({
-  scrollRef,
-  stickScroll,
-  setStickScroll,
+  coverScrolled,
+}: {
+  coverScrolled: boolean;
 }): JSX.Element {
-  //   const [count, setCount] = useState(0);
-
-  //   useEffect(() => {
-  //     const images = [];
-
-  //     for (let i = 0; i < 30; i++) {
-  //       const image = document.createElement("img");
-  //       image.src = `/frames/frame_${count
-  //         .toString()
-  //         .padStart(2, "0")}_delay-0.03s.png`;
-  //       images.push(image);
-  //     }
-
-  //     const imagesInfo = {
-  //       currentFrame: 0,
-  //       images,
-  //     };
-
-  //     const render = () => {
-  //       console.log(imagesInfo.currentFrame);
-  //       console.log(imagesInfo.images[0]);
-  //       scrollRef.current
-  //         .getContext("2d")
-  //         .drawImage(imagesInfo.images[0], 0, 0, 100, 100);
-  //     };
-  //     // gsap.registerPlugin(ScrollTrigger);
-  //     // gsap.to(imagesInfo, {
-  //     //   snap: "currentFrame",
-  //     //   ease: "none",
-  //     //   onUpdate: render,
-  //     //   scrollTrigger: {
-  //     //     trigger: scrollRef.current,
-  //     //     start: "top",
-  //     //     markers: true,
-  //     //   },
-  //     // });
-  //     render();
-  //   }, []);
-
-  //   // const scrollHandler = (e) => {
-  //   //   console.log(Math.ceil(e.target.scrollTop));
-  //   //   // if (e.target.scrollTop > 0) {
-  //   //   //   return;
-  //   //   // }
-  //   //   setCount(Math.floor((e.target.scrollTop / e.target.clientHeight) * 29));
-  //   //   Math.ceil((e.target.scrollTop / e.target.clientHeight) * 29) == 29 &&
-  //   //     setStickScroll(false);
-  //   // };
-  //   return (
-  //     // <div
-  //     //   ref={scrollRef}
-  //     //   className={
-  //     //     styles.root
-  //     //     //  + ` ${stickScroll ? styles.stick : ""}`
-  //     //   }
-  //     //   onScroll={scrollHandler}
-  //     // >
-  //     //   <div className={styles.timeline}>
-  //     //     <img
-  //     //       className={styles.image}
-  //     //       src={`/frames/frame_${count
-  //     //         .toString()
-  //     //         .padStart(2, "0")}_delay-0.03s.gif`}
-  //     //     />
-  //     //   </div>
-  //     // </div>
-  //     <div className={styles.root}>
-  //       <canvas className={styles.canvas} ref={scrollRef} />
-  //     </div>
-  //   );
-  // }
-
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
   const canvasRef = useRef(null);
-  const images = [];
-
-  for (let i = 0; i < 30; i++) {
-    images.push(
-      `/frames/frame_${i.toString().padStart(2, "0")}_delay-0.03s.png`
-    );
-  }
+  const imagesRef = useRef(null);
+  const pinRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    const img = canvasRef.current.children;
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const imagesInfo = {
-      
-    }
-
-    const render = () => {
-      context.drawImage(
-        img[0],
-        0,
-        0,
-        img[0].width,
-        img[0].height
-        // 0,
-        // 0,
-        // canvas.width,
-        // canvas.height
-      );
+    const onResize = () => {
+      setHeight(200);
+      setWidth(200);
     };
-
-    render();
-
-    gsap.to(imagesIn, {
-      scrollTrigger: "images",
-      start: `+=${index * 100}`,
-      end: `+=${(index + 1) * 100}`,
-      toggleActions: "play none none reverse",
-      autoAlpha: 1,
-      duration: 1,
-      ease: "power1.inOut",
-    });
+    onResize();
+    window.addEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    if (coverScrolled && height > 0 && width > 0 && canvasRef.current) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      console.log("setting");
+      const images = imagesRef.current?.children;
+      console.log(images);
+
+      const imagesInfo = {
+        totalFrames: 30,
+        currentFrame: 0,
+        images,
+      };
+
+      const render = () => {
+        console.log(imagesInfo.currentFrame);
+        // console.log(imagesInfo.images[imagesInfo.currentFrame]);
+        canvasRef.current
+          ?.getContext("2d")
+          .drawImage(
+            imagesInfo.images[imagesInfo.currentFrame],
+            0,
+            0,
+            canvasRef.current?.width,
+            canvasRef.current?.height
+          );
+      };
+      console.log("registered");
+      console.log(canvasRef.current);
+      console.log(coverScrolled);
+      gsap.to(imagesInfo, {
+        currentFrame: imagesInfo.totalFrames - 1,
+        snap: "currentFrame",
+        ease: "none",
+        onUpdate: render,
+        scrollTrigger: {
+          trigger: pinRef.current,
+          start: "top",
+          markers: true,
+          scrub: true,
+          pin: true,
+        },
+      });
+      render();
+    }
+  }, [coverScrolled, height, width, canvasRef]);
+
   return (
-    <div className={styles.root}>
-      <canvas ref={canvasRef}>
-        {images.map((image, index) => (
-          <img key={index} src={image} alt="image" className={styles.image} />
-        ))}
+    <div className={styles.pinRef} ref={pinRef}>
+      <canvas height={height} width={width} ref={canvasRef}>
+        <div className={styles.images} ref={imagesRef}>
+          {[...Array(30)].map((e, i) => (
+            <img
+              alt="a frame"
+              src={`/frames/frame_${i
+                .toString()
+                .padStart(2, "0")}_delay-0.03s.png`}
+              key={i}
+            />
+          ))}
+        </div>
       </canvas>
     </div>
   );

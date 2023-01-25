@@ -5,7 +5,7 @@ import styles from "./content.module.css";
 import Greeting from "../greeting/greeting";
 import Landing from "../landing/landing";
 import Contact from "../contact/contact";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Scroll from "../scroll/scroll";
 
 export default function Content({
@@ -14,31 +14,17 @@ export default function Content({
   coverScrolled: boolean;
 }): JSX.Element {
   const [dynamicStyle, setStyle] = useState(`${styles.root} ${styles.loading}`);
-  const scrollRef = useRef(null);
-  const [stickScroll, setStickScroll] = useState(false);
 
   useEffect(() => {
     if (coverScrolled) {
       setTimeout(() => {
-        console.log("set");
         setStyle(styles.root);
       }, 2000);
     }
   }, [coverScrolled]);
 
-  const handleScroll = () => {
-    // console.log(scrollRef.current?.getBoundingClientRect().top);
-    !stickScroll &&
-      scrollRef.current?.getBoundingClientRect().top <= 0 &&
-      setStickScroll(true);
-  };
-
-  useEffect(() => {
-    console.log(stickScroll);
-  }, [stickScroll]);
-
   return (
-    <div onScroll={handleScroll} className={`${dynamicStyle} ${styles.root}`}>
+    <div className={`${dynamicStyle} ${styles.root}`}>
       <div>
         <Landing />
       </div>
@@ -54,13 +40,7 @@ export default function Content({
       <div>
         <Carousel />
       </div>
-      <div>
-        <Scroll
-          setStickScroll={setStickScroll}
-          scrollRef={scrollRef}
-          stickScroll={stickScroll}
-        />
-      </div>
+      <Scroll coverScrolled={coverScrolled} key={coverScrolled ? 1 : 0} />
       <div>
         <Contact />
       </div>
