@@ -24,7 +24,8 @@ export default function Content({
   }, [coverScrolled]);
 
   return (
-    <div className={`${dynamicStyle} ${styles.root}`}>
+    // <div className={`${dynamicStyle} ${styles.root}`}>
+    <div className={`${dynamicStyle}`}>
       <div>
         <Landing />
       </div>

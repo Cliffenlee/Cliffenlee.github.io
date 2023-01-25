@@ -3,6 +3,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import styles from "./scroll.module.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Scroll({
   coverScrolled,
 }: {
@@ -12,12 +14,11 @@ export default function Scroll({
   const [width, setWidth] = useState(0);
   const canvasRef = useRef(null);
   const imagesRef = useRef(null);
-  const pinRef = useRef(null);
 
   useEffect(() => {
     const onResize = () => {
-      setHeight(200);
-      setWidth(200);
+      setHeight(window.innerHeight);
+      setWidth(window.innerWidth);
     };
     onResize();
     window.addEventListener("resize", onResize);
@@ -25,8 +26,6 @@ export default function Scroll({
 
   useEffect(() => {
     if (coverScrolled && height > 0 && width > 0 && canvasRef.current) {
-      gsap.registerPlugin(ScrollTrigger);
-
       console.log("setting");
       const images = imagesRef.current?.children;
       console.log(images);
@@ -50,6 +49,7 @@ export default function Scroll({
             canvasRef.current?.height
           );
       };
+      render();
       console.log("registered");
       console.log(canvasRef.current);
       console.log(coverScrolled);
@@ -59,32 +59,28 @@ export default function Scroll({
         ease: "none",
         onUpdate: render,
         scrollTrigger: {
-          trigger: pinRef.current,
+          trigger: canvasRef.current,
           start: "top",
-          markers: true,
           scrub: true,
           pin: true,
         },
       });
-      render();
     }
   }, [coverScrolled, height, width, canvasRef]);
 
   return (
-    <div className={styles.pinRef} ref={pinRef}>
-      <canvas height={height} width={width} ref={canvasRef}>
-        <div className={styles.images} ref={imagesRef}>
-          {[...Array(30)].map((e, i) => (
-            <img
-              alt="a frame"
-              src={`/frames/frame_${i
-                .toString()
-                .padStart(2, "0")}_delay-0.03s.png`}
-              key={i}
-            />
-          ))}
-        </div>
-      </canvas>
-    </div>
+    <canvas height={height} width={width} ref={canvasRef}>
+      <div className={styles.images} ref={imagesRef}>
+        {[...Array(30)].map((e, i) => (
+          <img
+            alt="a frame"
+            src={`/frames/frame_${i
+              .toString()
+              .padStart(2, "0")}_delay-0.03s.png`}
+            key={i}
+          />
+        ))}
+      </div>
+    </canvas>
   );
 }
